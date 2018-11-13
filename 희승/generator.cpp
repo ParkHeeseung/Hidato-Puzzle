@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include <ctime>
 
-const int MAX_SIZE = 20;
+const int MAX_SIZE = 100;
 const int dx[] = {1, 1, 0, -1, -1, -1, 0, 1};
 const int dy[] = {0, -1, -1, -1, 0, 1, 1, 1};
 const int nMAX = 8;
@@ -18,6 +18,7 @@ int main(){
 
   int height, width;
   int grid[MAX_SIZE][MAX_SIZE];
+  int count = 1;
   memset(grid, 0, sizeof(grid));
 
   srand((unsigned int)time(0));
@@ -30,7 +31,11 @@ int main(){
   int startY = rand() % height;
   int startX = rand() % width;
 
-  generate_puzzle(startX, startY, height, width, 1, grid);
+  cout << startX << " | " << startY << endl;
+
+  grid[startX][startY] = count++;
+
+  generate_puzzle(startX, startY, height, width, count, grid);
   cutting_puzzle(height, width, grid);
   display(height, width, grid);
 
