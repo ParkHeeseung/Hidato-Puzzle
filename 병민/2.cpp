@@ -1,4 +1,5 @@
 #include <cstdio>
+#include <ctime>
 int d[10][10],start_c,start_r,max_hidato,n;
 const int dx[8]={1,-1,0,0,1,1,-1,-1};
 const int dy[8]={0,0,1,-1,1,-1,-1,1};
@@ -20,6 +21,7 @@ void go(int c, int r, int l){
  }
 }
 int main(){
+	clock_t begin, end;
 	scanf("%d",&n);
 	for(int i =0; i < n;i++){
 		for(int j =0; j <n;j++) {
@@ -28,5 +30,10 @@ int main(){
 			if(d[i][j]==1) start_c =i, start_r = j;
 		}
 	}
+	begin = clock();
 	go(start_c,start_r,1);
+
+	end=clock();
+	printf("run time is : %lf ms\n",(double)(end-begin));
+	return 0;
 }
