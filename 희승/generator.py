@@ -96,7 +96,8 @@ def display(width, height, grid):
     print ''.join(['+'] + ['--+' for _ in xrange(width)])
 
 def main():
-    width = height = 8
+    width = input("width : ")
+    height = input("height : ")
     grid = generate_puzzle(width, height)
     display(width, height, grid)
 
