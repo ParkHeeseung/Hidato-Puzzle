@@ -14,6 +14,7 @@ void generate_puzzle(int x, int y, int height, int width,
   int count, int betweenNum,  int grid[][MAX_SIZE], int problemGrid[][MAX_SIZE]);
 void cutting_puzzle(int height, int width, int grid[][MAX_SIZE]);
 void display(int height, int width, int grid[][MAX_SIZE]);
+void testCasesPrint(int height, int width, int problemGrid[][MAX_SIZE]);
 
 int main(){
 
@@ -45,11 +46,15 @@ int main(){
   cutting_puzzle(height, width, problemGrid);
 
 
-  cout << "solution" << endl;
+  cout << "=====solution=====" << endl;
   display(height, width, grid);
 
-  cout << "problem" << endl;
+  cout << "=====problem=====" << endl;
   display(height, width, problemGrid);
+
+  cout << "=====testCase=====" << endl;
+  testCasesPrint(height, width, problemGrid);
+
 
 
 
@@ -142,5 +147,15 @@ void display(int height, int width, int grid[][MAX_SIZE]){
     }
     cout << "*" << endl;
 
+  }
+}
+
+void testCasesPrint(int height, int width, int problemGrid[][MAX_SIZE]){
+
+  for(int i = 0; i < height; i++){
+    for(int j = 0; j < width; j++){
+      cout << problemGrid[i][j] << " ";
+    }
+    cout << endl;
   }
 }
