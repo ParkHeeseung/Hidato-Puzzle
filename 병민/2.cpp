@@ -1,7 +1,7 @@
 #include <cstdio>
 #include <ctime>
 
-int d[10][10],start_c,start_r,max_num,n,m
+int d[10][10],start_c,start_r,max_num,n,m;
 
 bool check[101];
 
@@ -76,7 +76,7 @@ int main(){
 	scanf("%d %d",&n, &m);
 
 	for(int i =0; i < n;i++){
-		for(int j =0; j <n;j++) {
+		for(int j =0; j <m;j++) {
 			scanf("%d",&d[i][j]);
 			max_num = max_num > d[i][j] ? max_num:d[i][j];
 			if(d[i][j] > 0) check[d[i][j]] = true;
