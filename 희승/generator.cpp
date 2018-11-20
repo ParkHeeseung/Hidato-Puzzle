@@ -42,8 +42,8 @@ int main(){
   problemGrid[startX][startY] = 1;
 
   generate_puzzle(startX, startY, height, width, count, 1, grid, problemGrid);
-  cutting_puzzle(height, width, grid);
-  cutting_puzzle(height, width, problemGrid);
+  // cutting_puzzle(height, width, grid);
+  // cutting_puzzle(height, width, problemGrid);
 
 
   cout << "=====solution=====" << endl;
