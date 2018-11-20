@@ -114,8 +114,8 @@ void cutting_puzzle(int height, int width, int grid[][MAX_SIZE]){
 
   for(int i = 0; i < height; i++){
     for(int j = 0; j < width; j++){
-      if(grid[i][j] == 0) grid[i][j] = -1;
-      else if(grid[i][j] == -1) grid[i][j] = 0;
+      if(grid[i][j] == 0) grid[i][j] = 0;
+      else if(grid[i][j] == -1) grid[i][j] = -1;
     }
   }
 }
@@ -131,7 +131,7 @@ void display(int height, int width, int grid[][MAX_SIZE]){
   for(int i = 0; i < height; i++){
     cout << "|";
     for(int j = 0; j < width; j++){
-      if(grid[i][j] == -1){
+      if(grid[i][j] == 0){
         cout << "||" << "|";
       }
       else if(grid[i][j] / 10 == 0){
