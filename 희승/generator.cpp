@@ -28,18 +28,20 @@ int main(){
 
   srand((unsigned int)time(0));
 
-  cout << "height : " << endl;
-  cin >> height;
   cout << "width : " << endl;
   cin >> width;
+  cout << "height : " << endl;
+  cin >> height;
 
   int startY = rand() % height;
   int startX = rand() % width;
 
+
+  cout << "=====start=====" << endl;
   cout << startX << " | " << startY << endl;
 
-  grid[startX][startY] = count++;
-  problemGrid[startX][startY] = 1;
+  grid[startY][startX] = count++;
+  problemGrid[startY][startX] = 1;
 
   generate_puzzle(startX, startY, height, width, count, 1, grid, problemGrid);
   cutting_puzzle(height, width, grid);
@@ -88,18 +90,21 @@ void generate_puzzle(int x, int y, int height, int width,
 
     if (next_x < 0 || next_x >= width || next_y < 0 || next_y >= height) continue;
 
-    if(grid[next_x][next_y] == 0){
+    if(grid[next_y][next_x] == 0){
 
-      grid[next_x][next_y] = count;
+      cout << "x : " << next_x << " " << "y : " << next_y << endl;
+
+      grid[next_y][next_x] = count;
       if(betweenNum == 1){
-        problemGrid[next_x][next_y] = count;
+        problemGrid[next_y][next_x] = count;
       }
       else{
-        problemGrid[next_x][next_y] = -1;
+        problemGrid[next_y][next_x] = -1;
       }
       count++;
       betweenNum--;
       return generate_puzzle(next_x, next_y, height, width, count, betweenNum, grid, problemGrid);
+      break;
 
     }
 
