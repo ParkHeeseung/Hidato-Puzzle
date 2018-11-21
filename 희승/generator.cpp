@@ -1,4 +1,4 @@
-#include <iostream>
+  #include <iostream>
 #include <cstring>
 #include <cstdlib>
 #include <ctime>
@@ -44,8 +44,8 @@ int main(){
   problemGrid[startY][startX] = 1;
 
   generate_puzzle(startX, startY, height, width, count, 1, grid, problemGrid);
-  cutting_puzzle(height, width, grid);
-  cutting_puzzle(height, width, problemGrid);
+  // cutting_puzzle(height, width, grid);
+  // cutting_puzzle(height, width, problemGrid);
 
 
   cout << "=====solution=====" << endl;
@@ -104,15 +104,13 @@ void generate_puzzle(int x, int y, int height, int width,
       count++;
       betweenNum--;
       return generate_puzzle(next_x, next_y, height, width, count, betweenNum, grid, problemGrid);
-      break;
 
     }
 
-    if(i == nMAX - 1){
-      problemGrid[x][y] = count - 1;
-    }
+
   }
 
+  problemGrid[y][x] = count - 1;
 }
 
 void cutting_puzzle(int height, int width, int grid[][MAX_SIZE]){
